@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         read ft
+// @name         read medium
 // @namespace    https://viayoo.com/
 // @version      0.1
 // @description  try to take over the world!
