@@ -13,8 +13,8 @@
   // Lấy URL hiện tại
   var currentUrl = window.location.toString();
 
-  // Kiểm tra nếu URL chứa "ft.com"
-  if (currentUrl.includes("ft.com")) {
+  // Kiểm tra nếu URL chứa "ft.com" và không chứa "freedium"
+  if (currentUrl.includes("ft.com") && !currentUrl.includes("freedium.cfd")) {
     // Thay đổi URL
     var newUrl = currentUrl.replace("https://", "https://freedium.cfd/");
     window.location = newUrl;
