@@ -9,7 +9,12 @@
 // @grant        none
 // ==/UserScript==
 
-if (shouldRedirect(mediumDomains, googleCacheDomain, mediumLinkSelector)) {
+(function() {
+  const mediumDomains = ['medium.com', 'betterprogramming.pub', 'towardsdatascience.com'];
+  const googleCacheDomain = 'webcache.googleusercontent.com';
+  const mediumLinkSelector = 'head > link[href*=".medium.com/"]';
+
+  if (shouldRedirect(mediumDomains, googleCacheDomain, mediumLinkSelector)) {
     const url = window.location.href;
     redirectExternalLink('readmedium.com', 'https://{domain}/{url}', url);
   }
@@ -24,22 +29,3 @@ if (shouldRedirect(mediumDomains, googleCacheDomain, mediumLinkSelector)) {
     window.location.href = extUrl;
   }
 })();
-
-
-// (function () {
-//   // Lấy URL hiện tại
-//   var currentUrl = window.location.toString();
-//   var domainsToCheck = ["medium.com", ];
-//   var freediumUrl = "https://readmedium.com/";
-
-//   // Kiểm tra nếu URL chứa bất kỳ domain nào trong domainsToCheck và không chứa "freedium.cfd"
-//   var shouldReplace = domainsToCheck.some(function(domain) {
-//     return currentUrl.includes(domain);
-//   });
-
-//   if (shouldReplace && !currentUrl.includes("readmedium.com")) {
-//     // Thay đổi URL
-//     var newUrl = currentUrl.replace("https://medium.com/", freediumUrl);
-//     window.location = newUrl;
-//   }
-// })();
