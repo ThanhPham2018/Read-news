@@ -12,11 +12,17 @@
 (function () {
   // Lấy URL hiện tại
   var currentUrl = window.location.toString();
+  var domainsToCheck = ["ft.com", "medium.com"];
+  var freediumUrl = "https://freedium.cfd/";
 
-  // Kiểm tra nếu URL chứa "ft.com" và không chứa "freedium"
-  if (currentUrl.includes("ft.com") && !currentUrl.includes("freedium.cfd")) {
+  // Kiểm tra nếu URL chứa bất kỳ domain nào trong domainsToCheck và không chứa "freedium.cfd"
+  var shouldReplace = domainsToCheck.some(function(domain) {
+    return currentUrl.includes(domain);
+  });
+
+  if (shouldReplace && !currentUrl.includes("freedium.cfd")) {
     // Thay đổi URL
-    var newUrl = currentUrl.replace("https://", "https://freedium.cfd/");
+    var newUrl = currentUrl.replace("https://", freediumUrl);
     window.location = newUrl;
   }
 })();
